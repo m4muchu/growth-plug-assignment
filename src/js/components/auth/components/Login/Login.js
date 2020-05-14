@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import FacebookLogin from 'react-facebook-login';
 import { AuthProvider } from 'js/contexts';
 import { history } from 'js/helpers';
-
+import { configConstants } from 'js/constants';
 
 
 export const Login = () => {
@@ -15,10 +15,9 @@ export const Login = () => {
     }
 
     const responseFacebook = (response) => {
-        console.log('response++++++++++', response);
-        if (response) {
-            localStorage.setItem('token', response.accessToken);
-            localStorage.setItem('user_id', response.userID)
+        if (response && response.accessToken && response.userID) {
+            localStorage.setItem(configConstants.TOKEN_NAME, response.accessToken);
+            localStorage.setItem(configConstants.USER_ID, response.userID)
             setAuth({ ...auth, is_logged_in: true, ...response });
             history.push('/admin/dashboard');
         }
@@ -38,7 +37,7 @@ export const Login = () => {
                                 fields="name,email,picture"
                                 onClick={componentClicked}
                                 callback={responseFacebook}
-                            //icon={<AiFillFacebook/>}
+                                //icon={<TiSocialFacebookCircular />}
                             />
                         </Card.Body>
                     </Col>

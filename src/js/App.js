@@ -2,18 +2,23 @@ import React from 'react';
 import { Route, Switch, Router } from "react-router-dom";
 import { IndexRoutes } from "js/routes/index";
 import { history } from "js/helpers/history";
-import { AuthWrapper } from 'js/contexts';
+import { AuthWrapper, ModalWrapper } from 'js/contexts';
+import { ModalContainer } from 'js/components/common';
 
 
-const App= () => {
+
+const App = () => {
   return (
     <Router history={history} >
-    <AuthWrapper>
-      <Switch>
-        {IndexRoutes.map((prop, key) => {
-          return <Route path={prop.path} component={prop.component} key={key} />;
-        })}
-      </Switch>
+      <AuthWrapper>
+        <ModalWrapper>
+          <Switch>
+            {IndexRoutes.map((prop, key) => {
+              return <Route path={prop.path} component={prop.component} key={key} />;
+            })}
+          </Switch>
+          <ModalContainer />
+        </ModalWrapper>
       </AuthWrapper>
     </Router>
   );

@@ -14,7 +14,6 @@ export const PortalLayout = () => {
     const switchRoutes = (
         <Switch>
             {portalRoutes.map((prop, key) => {
-                console.log('props+++++', prop)
                 return <Route path={prop.path} component={prop.component} key={key} />
             })}
         </Switch>
@@ -25,7 +24,6 @@ export const PortalLayout = () => {
         if(!token){
             history.push('/auth');
         }
-        console.log('auth++++++++++=',auth)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
