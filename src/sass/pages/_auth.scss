@@ -1,0 +1,30 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .login-container {
+        max-width: 400px !important;;
+    }
+    // .card-login {
+    //     background: #455892;
+    //     color: #fff;
+    // }
+
+    .card-body {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    p {
+        margin-top: 70px;
+        justify-content: center;
+        display: flex;
+    }
+
+    img {
+        width: 363px;
+        margin-bottom: 109px;
+    }
+}
