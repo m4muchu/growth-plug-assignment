@@ -5,6 +5,7 @@ import {
     NavItem,
 } from 'react-bootstrap';
 import { history } from 'js/helpers';
+import { configConstants } from 'js/constants';
 
 export const Header = () => {
 
@@ -13,7 +14,8 @@ export const Header = () => {
     }
 
     const logout = () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem(configConstants.TOKEN_NAME);
+        localStorage.removeItem(configConstants.USER_ID);
         history.push('/auth');
     }
 
