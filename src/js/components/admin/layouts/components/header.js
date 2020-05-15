@@ -3,6 +3,7 @@ import {
     Navbar,
     Nav,
     NavItem,
+    Button
 } from 'react-bootstrap';
 import { history } from 'js/helpers';
 import { configConstants } from 'js/constants';
@@ -23,7 +24,7 @@ export const Header = () => {
         <Navbar color="white" light expand="lg" className="admin-navbar-head">
             <div className="d-flex ml-auto hide-lg">
                 <p onClick={logout} style={{ cursor: 'pointer' }}>
-                    Logout
+                    <Button variant="info">Logout</Button>
                 </p>
                 <Nav>
                     <NavItem>
