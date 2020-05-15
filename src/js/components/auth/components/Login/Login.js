@@ -10,10 +10,6 @@ export const Login = () => {
 
     const { auth, setAuth } = useContext(AuthProvider);
 
-    const componentClicked = () => {
-        console.log('component clicked++++++++++++');
-    }
-
     const responseFacebook = (response) => {
         if (response && response.accessToken && response.userID) {
             localStorage.setItem(configConstants.TOKEN_NAME, response.accessToken);
@@ -35,9 +31,7 @@ export const Login = () => {
                                 appId="657484211766914"
                                 autoLoad={false}
                                 fields="name,email,picture"
-                                onClick={componentClicked}
                                 callback={responseFacebook}
-                                //icon={<TiSocialFacebookCircular />}
                             />
                         </Card.Body>
                     </Col>

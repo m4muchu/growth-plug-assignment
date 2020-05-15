@@ -9,6 +9,7 @@ import {
 import { configConstants } from 'js/constants';
 import { facebookApi } from 'js/services';
 import { omit } from 'lodash';
+import { toast } from 'react-toastify';
 
 
 
@@ -38,6 +39,7 @@ export const UpdatePageInfo = (props) => {
             ...omit(state, 'id', 'name'),
             access_token: lookups[props.data.id]
         }).then(() => {
+            toast.success('Updated Successfully');
             setLoading(false);
             callBack();
         }).catch(() => setLoading(false));

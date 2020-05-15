@@ -4,6 +4,7 @@ import { configConstants } from 'js/constants';
 import { facebookApi } from 'js/services';
 import { forEach, isEmpty } from 'lodash';
 import { useModal } from 'js/hooks';
+import { FaFacebook, FaCheck } from 'react-icons/fa';
 
 
 export const Dashboard = () => {
@@ -51,12 +52,13 @@ export const Dashboard = () => {
             <Table responsive>
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th></th>
                         <th>Page Name</th>
                         <th>About</th>
                         <th>Bio</th>
                         <th>Description</th>
                         <th>Phone</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -64,12 +66,13 @@ export const Dashboard = () => {
                     {
                         !isEmpty(page_info) && page_info.map((item, index) => (
                             <tr key={index+item.name}>
-                                <td>{index+1}</td>
+                                <td><FaFacebook size="2em"/></td>
                                 <td>{item.name ? item.name: ''}</td>
                                 <td>{item.about ? item.about: ''}</td>
                                 <td>{item.bio ? item.bio: ''}</td>
                                 <td>{item.description ? item.description: ''}</td>
                                 <td>{item.phone ? item.phone: ''}</td>
+                                <td><FaCheck color="green" size="1.3em"/></td>
                                 <td>
                                     <Button 
                                         size="sm"
