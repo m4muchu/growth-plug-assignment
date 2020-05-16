@@ -41,8 +41,8 @@ export const Dashboard = () => {
                 fields: 'about,bio,description,phone,name',
                 access_token: item.access_token
             })
-                .then((response) => resolve(response.data))
-                .catch((err) => console.log('promise back error', err));
+            .then((response) => resolve(response.data))
+            .catch((err) => console.log('promise back error', err));
         });
     }
 
@@ -65,21 +65,21 @@ export const Dashboard = () => {
                 <tbody>
                     {
                         !isEmpty(page_info) && page_info.map((item, index) => (
-                            <tr key={index+item.name}>
-                                <td><FaFacebook size="2em"/></td>
-                                <td>{item.name ? item.name: ''}</td>
-                                <td>{item.about ? item.about: ''}</td>
-                                <td>{item.bio ? item.bio: ''}</td>
-                                <td>{item.description ? item.description: ''}</td>
-                                <td>{item.phone ? item.phone: ''}</td>
-                                <td><FaCheck color="green" size="1.3em"/></td>
+                            <tr key={index + item.name}>
+                                <td><FaFacebook size="2em" /></td>
+                                <td>{item.name ? item.name : ''}</td>
+                                <td>{item.about ? item.about : ''}</td>
+                                <td>{item.bio ? item.bio : ''}</td>
+                                <td>{item.description ? item.description : ''}</td>
+                                <td>{item.phone ? item.phone : ''}</td>
+                                <td><FaCheck color="green" size="1.3em" /></td>
                                 <td>
-                                    <Button 
+                                    <Button
                                         size="sm"
                                         onClick={() =>
                                             show('UpdatePageInfo', {
                                                 callBack: () => {
-                                                    getPagesDetails(fetch_data);        
+                                                    getPagesDetails(fetch_data);
                                                     hide('UpdatePageInfo');
                                                 },
                                                 data: item

@@ -3,7 +3,9 @@ import {
     Navbar,
     Nav,
     NavItem,
-    Button
+    Button,
+    Tooltip,
+    OverlayTrigger
 } from 'react-bootstrap';
 import { history } from 'js/helpers';
 import { configConstants } from 'js/constants';
@@ -21,12 +23,26 @@ export const Header = () => {
         history.push('/auth');
     }
 
+    const renderTooltip = (props) => {
+        return (
+            <Tooltip id="button-tooltip" {...props}>
+                Logout
+          </Tooltip>
+        );
+    }
+
     return (
         <Navbar color="white" light expand="lg" className="admin-navbar-head">
             <div className="d-flex ml-auto hide-lg">
-                <p onClick={logout} style={{ cursor: 'pointer' }}>
-                    <Button variant="info"><FaPowerOff/></Button>
-                </p>
+                <div onClick={logout} style={{ cursor: 'pointer' }}>
+                    <OverlayTrigger
+                        placement="bottom"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={renderTooltip}
+                    >
+                        <Button variant="info"><FaPowerOff /></Button>
+                    </OverlayTrigger>
+                </div>
                 <Nav>
                     <NavItem>
                         <Navbar.Toggle
@@ -38,13 +54,6 @@ export const Header = () => {
                     </NavItem>
                 </Nav>
             </div>
-            {/* <Navbar.Collapse navbar className="main-header">
-                <Nav className="ml-auto main-header-right" navbar>
-                    <NavItem>
-                        <p>Powered By Toolx</p>
-                    </NavItem>
-                </Nav>
-            </Navbar.Collapse> */}
         </Navbar>
     );
 }
