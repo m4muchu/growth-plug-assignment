@@ -32,7 +32,6 @@ export const Login = () => {
                                 autoLoad={false}
                                 fields="name,email,picture"
                                 callback={responseFacebook}
-                                isMobile={true}
                             />
                         </Card.Body>
                     </Col>
