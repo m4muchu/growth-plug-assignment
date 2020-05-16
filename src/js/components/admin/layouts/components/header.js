@@ -40,7 +40,7 @@ export const Header = () => {
                         delay={{ show: 250, hide: 400 }}
                         overlay={renderTooltip}
                     >
-                        <Button variant="info"><FaPowerOff /></Button>
+                        <Button variant="info" size="sm"><FaPowerOff /></Button>
                     </OverlayTrigger>
                 </div>
                 <Nav>
