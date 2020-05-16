@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import { history } from 'js/helpers';
 import { configConstants } from 'js/constants';
+import { FaPowerOff } from 'react-icons/fa';
 
 export const Header = () => {
 
@@ -24,7 +25,7 @@ export const Header = () => {
         <Navbar color="white" light expand="lg" className="admin-navbar-head">
             <div className="d-flex ml-auto hide-lg">
                 <p onClick={logout} style={{ cursor: 'pointer' }}>
-                    <Button variant="info">Logout</Button>
+                    <Button variant="info"><FaPowerOff/></Button>
                 </p>
                 <Nav>
                     <NavItem>
