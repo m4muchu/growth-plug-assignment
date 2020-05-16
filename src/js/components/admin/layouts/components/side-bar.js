@@ -1,16 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
-import { useContext } from 'react';
-import { AuthProvider } from 'js/contexts';
 
 export const Sidebar = () => {
-    const [ state, menuToggle ] = useState({
-        static_content_collapse: false,
-        reports_collapse: false,
-        membership_plan_collapse: false
-    })
-    const { auth } = useContext(AuthProvider)
 
     const toogleNavBar = () => {
         document.getElementById("sidebarNav").classList.toggle("open");
@@ -24,7 +15,7 @@ export const Sidebar = () => {
                 <ul className="admin-sidebar text-left">
 
                     <li className="sidebar__list">
-                        <NavLink to='/admin/dashboard' className="sidebar__list--text" activeClassName="active">
+                        <NavLink to='/admin/dashboard' onClick={toogleNavBar} className="sidebar__list--text" activeClassName="active">
                             <i>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M16.7823 15.545C14.6258 14.1356 12.1067 13.3822 9.53046 13.3762C6.95424 13.3822 4.43509 14.1356 2.27858 15.545C2.10214 15.664 1.86316 15.6224 1.73738 15.4507C-0.333648 12.4887 -0.545511 8.60834 1.19072 5.43845C2.92695 2.26855 6.31078 0.357691 9.9219 0.507924C14.96 0.75901 18.9437 4.86769 19.0391 9.91113C19.0613 11.8917 18.4612 13.8293 17.3235 15.4507C17.1978 15.6224 16.9588 15.664 16.7823 15.545ZM9.53046 2.67905C9.20225 2.67905 8.93618 2.94512 8.93618 3.27334V4.46191C8.93618 4.79013 9.20225 5.0562 9.53046 5.0562C9.85868 5.0562 10.1247 4.79013 10.1247 4.46191V3.27334C10.1247 2.94512 9.85868 2.67905 9.53046 2.67905ZM3.98378 10.6029H2.79521C2.467 10.6029 2.20092 10.3368 2.20092 10.0086C2.20092 9.68038 2.467 9.4143 2.79521 9.4143H3.98378C4.312 9.4143 4.57807 9.68038 4.57807 10.0086C4.57807 10.3368 4.312 10.6029 3.98378 10.6029ZM5.60777 6.68046C5.76545 6.68046 5.91667 6.61779 6.02813 6.50626C6.13962 6.39493 6.20226 6.24385 6.20226 6.0863C6.20226 5.92875 6.13962 5.77766 6.02813 5.66633L5.18821 4.82641C4.95605 4.59425 4.57965 4.59425 4.34749 4.82641C4.11533 5.05857 4.11533 5.43497 4.34749 5.66713L5.18741 6.50626C5.29887 6.61779 5.45009 6.68046 5.60777 6.68046ZM9.46628 11.9468C8.70316 11.9544 8.01166 11.4984 7.71796 10.7941C7.42427 10.0897 7.58705 9.27755 8.12953 8.74078C8.72857 8.14174 13.7095 5.07125 14.2752 4.72261C14.4315 4.62628 14.6335 4.64992 14.7633 4.77972C14.8931 4.90953 14.9167 5.1115 14.8204 5.26777C14.4718 5.83432 11.4013 10.8144 10.8022 11.4135C10.4449 11.7608 9.96458 11.9526 9.46628 11.9468ZM14.4829 10.0086C14.4829 10.3368 14.7489 10.6029 15.0771 10.6029H16.2657C16.5939 10.6029 16.86 10.3368 16.86 10.0086C16.86 9.68038 16.5939 9.4143 16.2657 9.4143H15.0771C14.7489 9.4143 14.4829 9.68038 14.4829 10.0086Z" fill="#758599" />
@@ -35,7 +26,7 @@ export const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li className="sidebar__list">
-                        <NavLink to='/admin/website' className="sidebar__list--text">
+                        <NavLink to='/admin/website' onClick={toogleNavBar} className="sidebar__list--text">
                             <i>
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M11.6408 1.58559C15.4379 2.0863 18.4421 5.09056 18.9428 8.88761V8.84589H20.3198V11.1408H18.9428C18.4421 14.9379 15.4379 17.9421 11.6825 18.4428V19.8198H9.38761V18.4428C5.59056 17.9421 2.5863 14.9379 2.08559 11.1825H0.708633V8.88761H2.08559C2.5863 5.09056 5.59056 2.0863 9.34589 1.58559V0.208633H11.6408V1.58559ZM11.6825 16.1062C14.1861 15.6472 16.1889 13.6444 16.6479 11.1408H12.3919V8.84588H16.6062C16.1472 6.34233 14.1444 4.33949 11.6408 3.88051V8.09482H9.34588V3.88051C6.84233 4.33949 4.83949 6.34233 4.38051 8.84588H8.63655V11.1408H4.42223C4.88122 13.6444 6.88406 15.6472 9.38761 16.1062V11.8919H11.6825V16.1062Z" fill="#758599" />
@@ -45,7 +36,7 @@ export const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li className="sidebar__list">
-                        <NavLink to='/admin/visitors' className="sidebar__list--text">
+                        <NavLink to='/admin/visitors' onClick={toogleNavBar} className="sidebar__list--text">
                             <i>
                                 <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5.53907 6.43542C7.25975 6.43542 8.6564 5.03902 8.6564 3.31758C8.6564 1.59614 7.26001 0.199997 5.53907 0.199997C3.81864 0.199997 2.42174 1.59639 2.42174 3.31783C2.42174 5.03928 3.81864 6.43542 5.53907 6.43542Z" fill="#758599" />
