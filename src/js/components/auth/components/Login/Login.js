@@ -32,6 +32,7 @@ export const Login = () => {
                                 autoLoad={false}
                                 fields="name,email,picture"
                                 callback={responseFacebook}
+                                disableMobileRedirect={true}
                             />
                         </Card.Body>
                     </Col>
